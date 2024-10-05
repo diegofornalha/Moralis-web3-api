@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# Flow EVM DApp - Saldos de Carteira
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é um DApp (Aplicativo Descentralizado) desenvolvido em **React** para exibir os saldos de carteiras na **Flow EVM Testnet** utilizando a **API Moralis**. O projeto contém um frontend que mostra o saldo nativo da carteira (FLOW) e os saldos de tokens ERC20 em uma tabela organizada e estilizada. O backend foi construído em Node.js para servir como intermediário entre o frontend e a API da Moralis.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- Exibe o saldo nativo de uma carteira (FLOW).
+- Exibe o saldo de tokens (ERC20) presentes na Flow EVM Testnet.
+- Visualização organizada dos saldos em uma tabela estilizada.
+- Exibe o JSON completo retornado pela API Moralis para fácil visualização.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Para o desenvolvimento do frontend.
+- **Node.js**: Para o backend que interage com a API da Moralis.
+- **Moralis**: Utilizado para obter os dados da carteira na Flow EVM.
+- **Axios**: Para fazer requisições HTTP no frontend.
+- **Express**: Framework de backend para servir as rotas do servidor.
+- **CSS**: Para estilização das tabelas e da interface.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Como Rodar o Projeto
 
-### `npm test`
+### Pré-requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Certifique-se de ter as seguintes ferramentas instaladas:
 
-### `npm run build`
+- **Node.js** e **npm**: Para rodar o backend e o frontend.
+- **Chave API da Moralis**: Crie uma conta no [Moralis](https://moralis.io/) e obtenha uma chave de API.
+- **Carteira na Flow Testnet**: Para testar o saldo de uma carteira na Flow EVM Testnet.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend (Servidor Node.js)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone o repositório e navegue até o diretório do servidor:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+bash
+Copiar código
+git clone <url-do-repositorio>
+cd server
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Instale as dependências:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+bash
+Copiar código
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Substitua sua chave API do Moralis no arquivo `index.js`:
 
-## Learn More
+```jsx
+javascript
+Copiar código
+const MORALIS_API_KEY = "sua-chave-api-moralis";
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Substitua o endereço da carteira que deseja monitorar:
 
-### Code Splitting
+```jsx
+javascript
+Copiar código
+const address = "seu-endereco-de-carteira";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+1. Inicie o servidor:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+bash
+Copiar código
+node index.js
 
-### Making a Progressive Web App
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+O servidor estará rodando na porta 4000.
 
-### Advanced Configuration
+### Frontend (React)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Navegue até o diretório do frontend:
 
-### Deployment
+```bash
+bash
+Copiar código
+cd your-first-dapp-react
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `npm run build` fails to minify
+1. Instale as dependências:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+bash
+Copiar código
+npm install
+
+```
+
+1. Inicie o frontend:
+
+```bash
+bash
+Copiar código
+npm start
+
+```
+
+O frontend estará rodando em `http://localhost:3000`.
+
+### Estrutura do Projeto
+
+```csharp
+csharp
+Copiar código
+your-first-dapp-react/
+│
+├── public/                # Arquivos estáticos
+├── src/                   # Código-fonte
+│   ├── App.js             # Componente principal do App React
+│   ├── balances.jsx       # Componente responsável por exibir saldos
+│   └── balances.css       # Arquivo de estilos CSS para balance.jsx
+├── server/                # Backend Node.js
+│   └── index.js           # Código do servidor que utiliza Moralis API
+├── README.md              # Documentação do projeto
+├── package.json           # Dependências do frontend
+└── package-lock.json      # Lockfile do frontend
+
+```
+
+### Exemplo de Resultado
+
+Ao acessar o frontend, a página principal terá um botão "Ver Saldos", que redireciona para a página `/balances`. A página exibe o saldo nativo da carteira e os saldos de tokens (se houver), com o **JSON completo** retornado pela API.
+
+### Captura de Tela
+
+### Problemas Comuns
+
+- **Erro 500 no servidor**: Certifique-se de que sua chave API Moralis está correta e de que o endereço da carteira é válido.
+- **Tokens não aparecendo**: Verifique se a carteira contém tokens na Flow EVM Testnet e se os dados estão sendo retornados corretamente pela API.
+
+## Contribuições
+
+Sinta-se à vontade para abrir *issues* ou enviar *pull requests* para melhorar o projeto.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para mais informações.
+
+---
