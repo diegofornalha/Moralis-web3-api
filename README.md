@@ -33,47 +33,32 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 1. Clone o repositório e navegue até o diretório do servidor:
 
 ```bash
-bash
-Copiar código
 git clone <url-do-repositorio>
 cd server
-
 ```
 
 1. Instale as dependências:
 
 ```bash
-bash
-Copiar código
 npm install
-
 ```
 
 1. Substitua sua chave API do Moralis no arquivo `index.js`:
 
 ```jsx
-javascript
-Copiar código
 const MORALIS_API_KEY = "sua-chave-api-moralis";
-
 ```
 
 1. Substitua o endereço da carteira que deseja monitorar:
 
 ```jsx
-javascript
-Copiar código
 const address = "seu-endereco-de-carteira";
-
 ```
 
 1. Inicie o servidor:
 
 ```bash
-bash
-Copiar código
 node index.js
-
 ```
 
 O servidor estará rodando na porta 4000.
@@ -83,28 +68,19 @@ O servidor estará rodando na porta 4000.
 1. Navegue até o diretório do frontend:
 
 ```bash
-bash
-Copiar código
 cd your-first-dapp-react
-
 ```
 
 1. Instale as dependências:
 
 ```bash
-bash
-Copiar código
 npm install
-
 ```
 
 1. Inicie o frontend:
 
 ```bash
-bash
-Copiar código
 npm start
-
 ```
 
 O frontend estará rodando em `http://localhost:3000`.
@@ -112,8 +88,6 @@ O frontend estará rodando em `http://localhost:3000`.
 ### Estrutura do Projeto
 
 ```csharp
-csharp
-Copiar código
 your-first-dapp-react/
 │
 ├── public/                # Arquivos estáticos
